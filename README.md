@@ -6,7 +6,7 @@ I made Empy as a part of my undergraduate thesis at the University of Oregon.
 
 [See Empy in action](https://youtu.be/RhrXB1W7zAI)!
 
-[Read the manual](https://github.com/ArdenButterfield/Empy/blob/main/User%20Manual.md).
+[Read the manual](User%20Manual.md).
 
 ## Build instructions
 
