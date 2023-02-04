@@ -2,7 +2,11 @@
 
 <img src="Images/gui.png">
 
-Empy is a plugin for a wide range of lossy distortion sounds, drawing inspiration from lossy audio compression codecs like MP3. Empy can sound bubbly and metallic. It can resemble a bitcrusher. It can freeze sound at spots, like a choppy phone connection. An any setting, Empy gives sound distinctive lossy distortion.
+- Sculpt the sound of MP3s, spotty phone calls, bitcrushers, and more.
+- Inspired by the MP3 encoding process, Empy lets you control every step of its distortion algorithm.
+- Discover unique and varied forms of distortion.
+- Free Mac download, Windows download in the works.
+- Code is open-sourced under the GPL-3.0 license, and avaliabe right here on Github: you can build, hack, and tinker with Empy yourself.
 
 I made Empy as a part of my undergraduate thesis at the University of Oregon.
 
