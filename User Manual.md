@@ -1,5 +1,7 @@
 # Empy User Manual
 
+<img src="Images/gui.png">
+
 Empy is a plugin for a wide range of lossy distortion sounds, drawing inspiration from lossy audio compression codecs like MP3. Empy can sound bubbly and metallic. It can resemble a bitcrusher. It can freeze sound at spots, like a choppy phone connection. An any setting, Empy gives sound distinctive lossy distortion.
 
 The algorithms within Empy are much simpler than the MP3 codec. The MP3 codec loops through different encoding levels, trying to find one that fits within the bit budget and the allowable distortion. Empy is, at its core, a spectral gate. An ordinary gate works in the time domain: it uses the amplitude of each sample, passed in one at a time, to determine if the audio is loud enough to pass through the gate or not. An ordinary gate has one threshold: audio louder than the threshold passes through unchanged, while audio below the threshold is attenuated, often all the way to zero. Empy, on the other hand, works in the frequency domain.  Each frequency has its own gate, and different gates can have different thresholds. This means that rather than acting only on the amplitude of a sound, Empy can change the timbre of the sound, removing quieter frequencies to give the sound a watery, MP3-like quality, or biasing its gate towards high or low frequencies to filter the sound.
@@ -19,6 +21,8 @@ Processing the signal in the frequency domain causes Empy to have some unavoidab
 ## The Empy GUI
 
 The three columns of the Empy graphical user interface (GUI) roughly correspond to the signal flow through the plugin. The first column contains controls for building the dynamic and static thresholds. These thresholds then get tilted towards the low or high frequencies by the bias control in the middle column. After the thresholds are applied to the sound, the sound can be further processed by the controls on the right column, in the order they appear from top to bottom.
+
+<img src="Images/signal_flow.png">
 
 ### Threshold Panel
 
