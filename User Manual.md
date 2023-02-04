@@ -14,6 +14,8 @@ Further shaping of the sound can be achieved with the bias, quantization, freque
 
 Processing the signal in the frequency domain causes Empy to have some unavoidable latency. To convert from the time domain to the frequency domain, Empy uses the Modified Discrete Cosine Transform, or MDCT. This algorithm, which similar to the Fast Fourier Transform (FFT), converts a frame of audio samples into their frequencies.  The MDCT uses overlapping windowed frames of audio to avoid harsh discontinuities at the transition points between windows. The MDCT cannot convert a frame to the frequency domain until every sample in that frame has arrived, meaning that Empy’s latency is determined by the MDCT window size. Larger window sizes are useful for encoding because of their greater frequency resolution. The Ogg Vorbis codec, a popular lossy compression algorithm that uses the MDCT, supports window sizes ranging from 64 all the way up to 8192 samples.  At the common sampling rate of 44100 Hz, an 8192 sample window incurs 185.8 milliseconds of latency, rendering it virtually unusable for a real-time audio plugin. AAC Low Delay, a lossy compression algorithm designed for low latency, real-time applications, uses the MDCT transform with 50% overlap as well, with a 512 sample window, resulting in under 20 milliseconds of latency.  Drawing inspiration from AAC Low Delay, I set Empy’s default window size to 512 samples, while allowing the user to change the window size using the frequency resolution drop-down menu.
 
+<img src="Images/windowfunction.svg">
+
 ## The Empy GUI
 
 The three columns of the Empy graphical user interface (GUI) roughly correspond to the signal flow through the plugin. The first column contains controls for building the dynamic and static thresholds. These thresholds then get tilted towards the low or high frequencies by the bias control in the middle column. After the thresholds are applied to the sound, the sound can be further processed by the controls on the right column, in the order they appear from top to bottom.
@@ -58,6 +60,8 @@ Frequency resolution determines the number of frequency lines we use in the tran
 Quantization works a bit like bit reduction in a bitcrusher, reducing the number of possible values for each amplitude and rounding the amplitudes down to the nearest option. The quantization knob sets the number of decibels between each quantization option, so higher values will change the sound more aggressively. A setting of 0 results in no quantization.
 
 Quantization in Empy works differently from quantization in the MP3 codec. In MP3 encoding, the step between quantization options is determined using a loop, to minimize bit usage while keeping distortion under the threshold. In initial versions of Empy, I tried setting the quantization step to be dependent on the threshold. However, I preferred the sound of a set quantization step for all frequencies. 
+
+<img src="Images/response.svg">
 
 ### Stick
 
